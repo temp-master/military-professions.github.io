@@ -28,9 +28,10 @@ if (menuButton && navigation) {
 }
 
 professionCards.forEach((card) => {
-  const button = card.querySelector('.profession-toggle');
+  const button = card.querySelector('.card-toggle');
   const label = button?.querySelector('.toggle-label');
   const icon = button?.querySelector('.toggle-icon');
+  const details = card.querySelector('.card-details');
 
   if (!button) return;
 
@@ -38,20 +39,23 @@ professionCards.forEach((card) => {
     const willOpen = !card.classList.contains('is-open');
 
     professionCards.forEach((otherCard) => {
-      const otherButton = otherCard.querySelector('.profession-toggle');
+      const otherButton = otherCard.querySelector('.card-toggle');
       const otherLabel = otherButton?.querySelector('.toggle-label');
       const otherIcon = otherButton?.querySelector('.toggle-icon');
+      const otherDetails = otherCard.querySelector('.card-details');
 
       otherCard.classList.remove('is-open');
       otherButton?.setAttribute('aria-expanded', 'false');
-      if (otherLabel) otherLabel.textContent = 'Подробнее';
+      otherDetails?.setAttribute('aria-hidden', 'true');
+      if (otherLabel) otherLabel.textContent = 'Подробнее о профессии';
       if (otherIcon) otherIcon.textContent = '+';
     });
 
     if (willOpen) {
       card.classList.add('is-open');
       button.setAttribute('aria-expanded', 'true');
-      if (label) label.textContent = 'Свернуть';
+      details?.setAttribute('aria-hidden', 'false');
+      if (label) label.textContent = 'Скрыть подробности';
       if (icon) icon.textContent = '−';
     }
   });

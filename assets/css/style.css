@@ -665,6 +665,23 @@ button {
   flex: 1;
 }
 
+.card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #b9b5ab;
+  font-size: 8px;
+}
+
+.card-status::before {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 4px rgba(227, 30, 36, 0.12);
+  content: "";
+}
+
 .profession-card h3 {
   max-width: 590px;
   margin: 0 0 22px;
@@ -698,6 +715,23 @@ button {
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+.toggle-copy {
+  display: grid;
+  gap: 7px;
+  text-align: left;
+}
+
+.toggle-copy small {
+  color: #77736b;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.profession-card.is-open .toggle-label {
+  color: #fff;
 }
 
 .card-toggle b {
