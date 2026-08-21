@@ -14,6 +14,10 @@
     font-display: swap;
 }
 
+[id] {
+  scroll-margin-top: 10svh;
+}
+
 :root {
   --ink: #11110f;
   --ink-soft: #181815;
