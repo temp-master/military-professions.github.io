@@ -695,7 +695,7 @@ button {
   align-items: center;
   gap: 7px;
   color: #b9b5ab;
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .card-status::before {
@@ -719,7 +719,7 @@ button {
   max-width: 620px;
   margin: 0;
   color: #aaa69d;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.7;
 }
 
@@ -812,7 +812,7 @@ button {
   position: relative;
   padding-left: 18px;
   color: #c8c4ba;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 1.45;
 }
 
@@ -1305,7 +1305,7 @@ button {
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   background: #0b0b0a;
   color: #77736b;
-  font: 8px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
