@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/script.js" defer></script>
   </head>
-  <body>
+  <body id="top">
     <div class="cursor-glow" aria-hidden="true"></div>
 
     <header class="site-header">
@@ -31,25 +31,9 @@
           <small>новых военных профессий</small>
         </span>
       </a>
-
-      <button class="menu-button" type="button" aria-label="Открыть меню" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="main-nav" aria-label="Основная навигация">
-        <a href="#professions">Профессии</a>
-        <a href="#laboratories">Лаборатории</a>
-        <a href="#vector">Вектор развития</a>
-      </nav>
-
-      <div class="header-status">
-        <i></i>
-        <span>РЕДАКЦИЯ / 2026</span>
-      </div>
     </header>
 
-    <main id="top">
+    <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-grid" aria-hidden="true"></div>
         <img class="hero-emblem" src="assets/images/atlas-emblem.svg" alt="" aria-hidden="true" />
@@ -69,37 +53,10 @@
           </h1>
 
           <div class="hero-summary hero-enter delay-4">
-            <span>001—006</span>
             <p>
               Навигатор по специальностям, которые определяют технологическое
               превосходство и облик армии будущего.
             </p>
-          </div>
-        </div>
-
-        <div class="hero-visual hero-enter delay-3">
-          <div class="orbit orbit-one" aria-hidden="true"></div>
-          <div class="orbit orbit-two" aria-hidden="true"></div>
-          <div class="radar" aria-hidden="true"></div>
-
-          <figure class="hero-photo">
-            <img
-              src="assets/images/robotics-lab.png"
-              alt="Военный инженер работает с роботизированным комплексом"
-            />
-            <figcaption>
-              <span>РОБОТОТЕХНИЧЕСКАЯ ЛАБОРАТОРИЯ</span>
-              <span>01 / 26</span>
-            </figcaption>
-          </figure>
-
-          <div class="data-chip chip-top">
-            <span>СИСТЕМА</span>
-            <strong>READY / 4.2</strong>
-          </div>
-          <div class="data-chip chip-bottom">
-            <span>ГОТОВНОСТЬ</span>
-            <strong>98.7%</strong>
           </div>
         </div>
 
@@ -109,22 +66,50 @@
         </a>
       </section>
 
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>РОБОТОТЕХНИКА</span><i></i>
-          <span>ОПТИЧЕСКИЕ СИСТЕМЫ</span><i></i>
-          <span>БИОМЕХАНИКА</span><i></i>
-          <span>ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</span><i></i>
-          <span>КИБЕРУСТОЙЧИВОСТЬ</span><i></i>
-          <span>АВТОМАТИЗИРОВАННЫЕ СИСТЕМЫ</span><i></i>
-          <span>РОБОТОТЕХНИКА</span><i></i>
-          <span>ОПТИЧЕСКИЕ СИСТЕМЫ</span><i></i>
-          <span>БИОМЕХАНИКА</span><i></i>
-          <span>ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</span><i></i>
-          <span>КИБЕРУСТОЙЧИВОСТЬ</span><i></i>
-          <span>АВТОМАТИЗИРОВАННЫЕ СИСТЕМЫ</span><i></i>
+      <section class="laboratories" id="laboratories">
+        <div class="lab-heading reveal">
+          <h2>Технологии<br />в работе</h2>
         </div>
-      </div>
+
+        <div class="photo-story">
+          <figure class="story-wide reveal" onclick="location.href='#prof1';">
+            <img
+              src="assets/images/cyber-lab.png"
+              alt="Военный инженер работает с программным обеспечением и измерительными приборами"
+              loading="lazy"
+              href="#prof1"
+            />
+            <figcaption>
+              <span>01</span>
+              <strong>Техническое обеспечение робототехнических систем и мехатронных устройств</strong>
+            </figcaption>
+          </figure>
+
+          <figure class="story-portrait reveal" onclick="location.href='#prof2';">
+            <img
+              src="assets/images/optics-lab.png"
+              alt="Военный специалист проверяет оптическую систему"
+              loading="lazy"
+            />
+            <figcaption>
+              <span>02</span>
+              <strong>Обслуживание и ремонт оптических и оптико-электронных приборов и систем</strong>
+            </figcaption>
+          </figure>
+
+          <figure class="story-detail reveal" onclick="location.href='#prof3';">
+            <img
+              src="assets/images/robotics-lab.png"
+              alt="Инженер тестирует роботизированную руку"
+              loading="lazy"
+            />
+            <figcaption>
+              <span>03</span>
+              <strong>Техническое обеспечение робототехнических систем и мехатронных устройств</strong>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
       <section class="professions-section" id="professions">
         <div class="section-heading reveal">
@@ -133,62 +118,57 @@
             <h2>Профессии<br /><em>будущего</em></h2>
           </div>
           <p class="section-lead">
-            Шесть инженерных направлений на пересечении фундаментальной
-            подготовки, цифровых технологий и практической службы.
+            Новые и перспективные военные профессии (специальности) по подготовке военных специалистов РТО и АртТО
           </p>
         </div>
 
         <div class="profession-grid">
-          <article class="profession-card is-open reveal">
+          <article class="profession-card reveal" id="prof1">
             <div class="card-topline">
               <span class="card-code">01</span>
-              <span class="card-domain">MECH / ROBOTICS</span>
+              <span class="card-domain">Инженер-мехатроник</span>
               <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
             </div>
-            <h3>Инженер-мехатроник</h3>
+            <h3>Техник</h3>
             <p class="card-description">
-              Разрабатывает интеллектуальные технические комплексы, объединяя
-              механику, электронику и программное управление.
+              Разработка, проектирование, настройка и обслуживание интеллектуальных технических комплексов,
+              объединяющих механические узлы, электронику, приводы и программное управление.
             </p>
-            <button class="card-toggle" type="button" aria-expanded="true" aria-controls="profession-01-details">
+            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-01-details">
               <span class="toggle-copy">
-                <span class="toggle-label">Скрыть подробности</span>
-                <small>Задачи и подготовка</small>
+                <span class="toggle-label">Подробнее о профессии</span>
               </span>
-              <b class="toggle-icon" aria-hidden="true">−</b>
+              <b class="toggle-icon" aria-hidden="true">+</b>
             </button>
-            <div class="card-details" id="profession-01-details" aria-hidden="false">
+            <div class="card-details" id="profession-01-details" aria-hidden="true">
               <div>
                 <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
                 <ul>
-                  <li>Проектирование робототехнических комплексов</li>
-                  <li>Разработка систем наведения и стабилизации</li>
-                  <li>Математическое моделирование</li>
-                  <li>Пусконаладочные работы</li>
+                  <li>Разработка технических заданий и технико-экономических обоснований проектов новых и модернизируемых робототехнических и мехатронных модулей для систем наведения, заряжания и стабилизации вооружения</li>
+                  <li>Объединение механических узлов с электроникой и программным обеспечением, их наладка</li>
+                  <li>Расчет и проектирование мехатронных модулей в соответствии с техническим заданием</li>
+                  <li>Математическое моделирование мехатронных систем, роботов и их модулей с применением специализированных ПО</li>
+                  <li>Организация и проведение экспериментов на действующих объектах и макетах, обработка результатов с применением современных информационных технологий</li>
+                  <li>Проведение испытаний разработанных и изготовленных образцов, а также обоснование мер по обеспечению безопасности их эксплуатации</li>
                 </ul>
-                <dl>
-                  <div><dt>Образование</dt><dd>15.05.02 Робототехника военного назначения</dd></div>
-                  <div><dt>ВУЗы</dt><dd>БГТУ «ВОЕНМЕХ», ВА МТО (Пенза)</dd></div>
-                </dl>
               </div>
             </div>
           </article>
 
-          <article class="profession-card reveal">
+          <article class="profession-card reveal" id="prof2">
             <div class="card-topline">
               <span class="card-code">02</span>
-              <span class="card-domain">OPTICS / VISION</span>
+              <span class="card-domain">Инженер-мехатроник</span>
               <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
             </div>
-            <h3>Инженер-оптомеханик</h3>
+            <h3>Программист</h3>
             <p class="card-description">
-              Обслуживает роботизированные комплексы с техническим зрением и
-              отвечает за точность оптических систем.
+              Разработка, проектирование, настройка и обслуживание интеллектуальных технических комплексов,
+              объединяющих механические узлы, электронику, приводы и программное управление.
             </p>
             <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-02-details">
               <span class="toggle-copy">
                 <span class="toggle-label">Подробнее о профессии</span>
-                <small>Задачи и подготовка</small>
               </span>
               <b class="toggle-icon" aria-hidden="true">+</b>
             </button>
@@ -196,34 +176,30 @@
               <div>
                 <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
                 <ul>
-                  <li>Калибровка оптики после перегрузок</li>
-                  <li>Замена и юстировка камер и датчиков</li>
-                  <li>Расчёт поправочных коэффициентов</li>
-                  <li>Ремонт систем охлаждения матриц</li>
+                  <li>Разработка технических заданий и технико-экономических обоснований проектов новых и модернизируемых робототехнических и мехатронных модулей для систем наведения, заряжания и стабилизации вооружения</li>
+                  <li>Расчет и проектирование управляющих, информационно – сенсорных и исполнительных подсистем</li>
+                  <li>Разработка алгоритмического и программного обеспечения средств и систем автоматизации и управления</li>
+                  <li>Математическое моделирование мехатронных систем, роботов и их модулей с применением специализированных ПО</li>
+                  <li>Организация и проведение экспериментов на действующих объектах и макетах, обработка результатов с применением современных информационных технологий</li>
+                  <li>Проведение испытаний разработанных и изготовленных образцов, а также обоснование мер по обеспечению безопасности их эксплуатации</li>
                 </ul>
-                <dl>
-                  <div><dt>Образование</dt><dd>12.05.01 Оптико-электронные приборы</dd></div>
-                  <div><dt>ВУЗы</dt><dd>МГТУ им. Баумана, ВА МТО (Пенза)</dd></div>
-                </dl>
               </div>
             </div>
           </article>
 
-          <article class="profession-card reveal">
+          <article class="profession-card reveal" id="prof3">
             <div class="card-topline">
               <span class="card-code">03</span>
-              <span class="card-domain">BIO / HUMAN SYSTEMS</span>
+              <span class="card-domain"></span>
               <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
             </div>
-            <h3>Инженер-биомеханик</h3>
+            <h3>Инженер-оптотехник</h3>
             <p class="card-description">
-              Проектирует вооружение и экипировку с учётом антропометрии
-              человека, динамических нагрузок и эргономики.
+              Обслуживание и ремонт роботизированных комплексов с техническим (машинным) зрением.
             </p>
             <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-03-details">
               <span class="toggle-copy">
                 <span class="toggle-label">Подробнее о профессии</span>
-                <small>Задачи и подготовка</small>
               </span>
               <b class="toggle-icon" aria-hidden="true">+</b>
             </button>
@@ -231,229 +207,16 @@
               <div>
                 <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
                 <ul>
-                  <li>Исследование системы «оператор — оружие»</li>
-                  <li>Проектирование боевых экзоскелетов</li>
-                  <li>Моделирование динамических нагрузок</li>
-                  <li>Оптимизация эргономики вооружения</li>
+                  <li>Калибровка оптики после перегрузок, расчеты матрицы поправочных коэффициентов (для температуры, давления) и загрузка их в бортовой ПК</li>
+                  <li>Перепрошивка библиотек образов целей, корректировка параметров порога обнаружения целей</li>
+                  <li>Адаптация системы под местность, замена фильтрации помех в коде</li>
+                  <li>Замена и юстировка вышедших из строя модулей (камер, плат и тд.)</li>
+                  <li>Чистка и замена окон лазерных/оптических датчиков</li>
+                  <li>Ремонт системы охлаждения матриц (замена хладагентов, проверка герметичности) в целях недопущения перегрева высокочувствительных датчиков в бою</li>
                 </ul>
-                <dl>
-                  <div><dt>Направление</dt><dd>Инженерия, биология, физика</dd></div>
-                  <div><dt>Фокус</dt><dd>Человек, экипировка, подвижность</dd></div>
-                </dl>
               </div>
             </div>
           </article>
-
-          <article class="profession-card reveal">
-            <div class="card-topline">
-              <span class="card-code">04</span>
-              <span class="card-domain">AI / SYNTHETIC DATA</span>
-              <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
-            </div>
-            <h3>Инженер по обучению боевых нейросетей</h3>
-            <p class="card-description">
-              Создаёт синтетические образы целей, формирует обучающие выборки и
-              находит слепые зоны алгоритмов распознавания.
-            </p>
-            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-04-details">
-              <span class="toggle-copy">
-                <span class="toggle-label">Подробнее о профессии</span>
-                <small>Задачи и подготовка</small>
-              </span>
-              <b class="toggle-icon" aria-hidden="true">+</b>
-            </button>
-            <div class="card-details" id="profession-04-details" aria-hidden="true">
-              <div>
-                <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
-                <ul>
-                  <li>Создание 3D-моделей целей</li>
-                  <li>Генерация образов в условиях помех</li>
-                  <li>Тестирование алгоритмов распознавания</li>
-                  <li>Моделирование тумана, снега и маскировки</li>
-                </ul>
-                <dl>
-                  <div><dt>Навыки</dt><dd>Python, TensorFlow, PyTorch</dd></div>
-                  <div><dt>Инструменты</dt><dd>3D-моделирование, синтетические данные</dd></div>
-                </dl>
-              </div>
-            </div>
-          </article>
-
-          <article class="profession-card reveal">
-            <div class="card-topline">
-              <span class="card-code">05</span>
-              <span class="card-domain">CYBER / RESILIENCE</span>
-              <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
-            </div>
-            <h3>Инженер по киберустойчивости АСУ</h3>
-            <p class="card-description">
-              Защищает автоматизированные системы управления вооружением от
-              кибератак и несанкционированного доступа.
-            </p>
-            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-05-details">
-              <span class="toggle-copy">
-                <span class="toggle-label">Подробнее о профессии</span>
-                <small>Задачи и подготовка</small>
-              </span>
-              <b class="toggle-icon" aria-hidden="true">+</b>
-            </button>
-            <div class="card-details" id="profession-05-details" aria-hidden="true">
-              <div>
-                <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
-                <ul>
-                  <li>Тестирование защищённости интерфейсов</li>
-                  <li>Моделирование потери ГЛОНАСС / GPS</li>
-                  <li>Испытания систем «свой — чужой»</li>
-                  <li>Разработка перехода на ручное управление</li>
-                </ul>
-                <dl>
-                  <div><dt>Навыки</dt><dd>Кибербезопасность, Python, C++</dd></div>
-                  <div><dt>Среда</dt><dd>АСУ, защищённые контуры, MATLAB</dd></div>
-                </dl>
-              </div>
-            </div>
-          </article>
-
-          <article class="profession-card reveal">
-            <div class="card-topline">
-              <span class="card-code">06</span>
-              <span class="card-domain">C2 / DECISION SUPPORT</span>
-              <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
-            </div>
-            <h3>Специалист по эксплуатации АСУ</h3>
-            <p class="card-description">
-              Обеспечивает работу систем поддержки принятия решений с
-              элементами искусственного интеллекта.
-            </p>
-            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-06-details">
-              <span class="toggle-copy">
-                <span class="toggle-label">Подробнее о профессии</span>
-                <small>Задачи и подготовка</small>
-              </span>
-              <b class="toggle-icon" aria-hidden="true">+</b>
-            </button>
-            <div class="card-details" id="profession-06-details" aria-hidden="true">
-              <div>
-                <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
-                <ul>
-                  <li>Поддержка работоспособности АСУ с ИИ</li>
-                  <li>Диагностика производительности</li>
-                  <li>Модернизация программного обеспечения</li>
-                  <li>Подготовка пользователей</li>
-                </ul>
-                <dl>
-                  <div><dt>Код</dt><dd>2000020, ВУС 7250203</dd></div>
-                  <div><dt>ВУЗы</dt><dd>ИТМО, МГТУ им. Баумана, МИРЭА</dd></div>
-                </dl>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="laboratories" id="laboratories">
-        <div class="lab-heading reveal">
-          <p class="eyebrow"><span>СРЕДА ПОДГОТОВКИ / 03</span></p>
-          <h2>Технологии<br />в работе</h2>
-        </div>
-
-        <div class="photo-story">
-          <figure class="story-wide reveal">
-            <img
-              src="assets/images/cyber-lab.png"
-              alt="Военный инженер работает с программным обеспечением и измерительными приборами"
-              loading="lazy"
-            />
-            <figcaption>
-              <span>01</span>
-              <strong>Киберустойчивость и анализ данных</strong>
-              <p>Контроль состояния систем, работа с кодом и диагностикой оборудования.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="story-portrait reveal">
-            <img
-              src="assets/images/optics-lab.png"
-              alt="Военный специалист проверяет оптическую систему"
-              loading="lazy"
-            />
-            <figcaption>
-              <span>02</span>
-              <strong>Оптика и техническое зрение</strong>
-              <p>Калибровка, юстировка и испытание оптико-электронных комплексов.</p>
-            </figcaption>
-          </figure>
-
-          <figure class="story-detail reveal">
-            <img
-              src="assets/images/robotics-lab.png"
-              alt="Инженер тестирует роботизированную руку"
-              loading="lazy"
-            />
-            <figcaption>
-              <span>03</span>
-              <strong>Мехатроника и робототехника</strong>
-              <p>Испытание интеллектуальных комплексов в лабораторной среде.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="vector-section" id="vector">
-        <div class="vector-orbit" aria-hidden="true"><span></span></div>
-
-        <div class="vector-top reveal">
-          <p class="eyebrow"><span>ВЕКТОР РАЗВИТИЯ / 2030+</span></p>
-          <span>II — 02</span>
-        </div>
-
-        <div class="vector-title reveal">
-          <p>НЕ ПРОСТО</p>
-          <p>НОВАЯ ТЕХНИКА.</p>
-          <p class="outline">НОВАЯ ЛОГИКА</p>
-          <p class="red">ПОДГОТОВКИ.</p>
-        </div>
-
-        <div class="vector-content">
-          <div class="vector-copy reveal">
-            <span>ЦЕЛЕВАЯ МОДЕЛЬ</span>
-            <p>
-              Современный военный инженер одновременно понимает физику
-              процесса, владеет цифровым инструментарием и умеет принимать
-              решение в сложной технической среде.
-            </p>
-            <a href="#professions">ИЗУЧИТЬ НАПРАВЛЕНИЯ <b>↗</b></a>
-          </div>
-
-          <div class="stats reveal">
-            <div><strong>06</strong><span>профессий<br />в атласе</span></div>
-            <div><strong>03</strong><span>ядра<br />компетенций</span></div>
-            <div><strong>360°</strong><span>системное<br />мышление</span></div>
-          </div>
-        </div>
-
-        <div class="competencies reveal">
-          <div class="competency-head">
-            <span>КОМПЕТЕНЦИЯ</span><span>ИНЖЕНЕРИЯ</span><span>ДАННЫЕ</span><span>УПРАВЛЕНИЕ</span>
-          </div>
-          <div class="competency-row">
-            <strong>ТЕХНИЧЕСКИЕ СИСТЕМЫ</strong>
-            <span style="--value: 92%"><i></i><b>92</b></span>
-            <span style="--value: 58%"><i></i><b>58</b></span>
-            <span style="--value: 74%"><i></i><b>74</b></span>
-          </div>
-          <div class="competency-row">
-            <strong>ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ</strong>
-            <span style="--value: 64%"><i></i><b>64</b></span>
-            <span style="--value: 96%"><i></i><b>96</b></span>
-            <span style="--value: 81%"><i></i><b>81</b></span>
-          </div>
-          <div class="competency-row">
-            <strong>КИБЕРУСТОЙЧИВОСТЬ</strong>
-            <span style="--value: 78%"><i></i><b>78</b></span>
-            <span style="--value: 89%"><i></i><b>89</b></span>
-            <span style="--value: 93%"><i></i><b>93</b></span>
-          </div>
         </div>
       </section>
 
@@ -461,10 +224,10 @@
         <img src="assets/images/atlas-emblem.svg" alt="" aria-hidden="true" />
         <div class="closing-copy reveal">
           <p class="eyebrow"><span>АТЛАС / 2026</span></p>
-          <h2>ТЕХНОЛОГИИ.<br />ЛИДЕРСТВО.<br /><em>ИННОВАЦИИ.</em></h2>
+          <h2>ТЕХНОЛОГИИ<br />ЛИДЕРСТВО<br /><em>ИННОВАЦИИ</em></h2>
           <p>
             Профессии будущего начинаются с людей, готовых соединять знания,
-            ответственность и инженерное мышление.
+            ответственность и любовь к Родине.
           </p>
         </div>
         <a class="back-top" href="#top"><span>В НАЧАЛО</span><b>↑</b></a>

@@ -35,7 +35,9 @@ professionCards.forEach((card) => {
 
   if (!button) return;
 
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+
     const willOpen = !card.classList.contains('is-open');
 
     professionCards.forEach((otherCard) => {
