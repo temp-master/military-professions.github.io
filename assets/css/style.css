@@ -41,18 +41,55 @@
   }
 }
 
-[id]:not(#professions) {
-  scroll-margin-top: 13svh;
+/* [id]:not(#professions) { */
+[id] {
+  scroll-margin-top: 8svh;
 }
 
+/* ============================================================
+   Палитра сайта — ЕДИНСТВЕННОЕ МЕСТО для изменения цветов.
+   Базовые цвета бренда:
+     #f9f7f7 — светлый фон / основной текст на тёмном
+     #dbe2ef — вторичная поверхность / приглушённый текст
+     #3f72af — акцент
+     #112d4e — тёмный фон
+   Все производные оттенки ниже выведены из базовых четырёх.
+   ============================================================ */
 :root {
-  --ink: #11110f;
-  --ink-soft: #181815;
-  --paper: #f1eee5;
-  --muted: #a8a49a;
-  --red: #e31e24;
-  --red-dark: #9e1015;
-  --line: rgba(241, 238, 229, 0.17);
+  /* --- базовая палитра --- */
+  --c-light: #f9f7f7;
+  --c-surface: #dbe2ef;
+  --c-accent: #3f72af;
+  --c-dark: #112d4e;
+
+  /* --- фон (тёмные поверхности) --- */
+  --bg-deep: #0b1f38;   /* самый тёмный: футер */
+  --bg-base: var(--c-dark);
+  --bg-soft: #16375e;   /* секции, карточки */
+  --bg-card: #14304f;
+  --bg-header: rgba(11, 31, 56, 0.7);
+
+  /* --- текст --- */
+  --text-strong: var(--c-light);
+  --text-bright: #eceff5;
+  --text-body: #ccd7e8;
+  --text-muted: var(--c-surface);
+  --text-faint: #9fb4d1;
+  --on-light: var(--c-dark);
+  --on-light-muted: #5c7ba3;
+
+  /* --- акцент и его оттенки --- */
+  --accent: var(--c-accent);
+  --accent-dark: #2f578a;
+  --accent-glow: rgba(63, 114, 175, 0.45);
+  --accent-soft: rgba(63, 114, 175, 0.24);
+  --accent-faint: rgba(63, 114, 175, 0.12);
+
+  /* --- линии и сетки --- */
+  --line: rgba(249, 247, 247, 0.17);
+  --line-strong: rgba(249, 247, 247, 0.24);
+  --grid-line: rgba(249, 247, 247, 0.08);
+
   --cursor-x: 70vw;
   --cursor-y: 30vh;
 }
@@ -62,7 +99,7 @@
 }
 
 html {
-  background: var(--ink);
+  background: var(--bg-base);
   scroll-behavior: smooth;
 }
 
@@ -70,8 +107,8 @@ body {
   min-width: 320px;
   margin: 0;
   overflow-x: hidden;
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--bg-base);
+  color: var(--text-strong);
   font-family: "Helvetica Neue";
 }
 
@@ -95,8 +132,8 @@ button {
 }
 
 ::selection {
-  background: var(--red);
-  color: #fff;
+  background: var(--accent);
+  color: var(--text-strong);
 }
 
 .cursor-glow {
@@ -106,7 +143,7 @@ button {
   pointer-events: none;
   background: radial-gradient(
     360px circle at var(--cursor-x) var(--cursor-y),
-    rgba(227, 30, 36, 0.11),
+    var(--accent-faint),
     transparent 68%
   );
   mix-blend-mode: screen;
@@ -116,7 +153,7 @@ button {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--bg-header);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
@@ -158,7 +195,7 @@ button {
   justify-self: end;
   align-items: center;
   gap: 10px;
-  color: #c2beb4;
+  color: var(--text-body);
   font: 10px/1;
   letter-spacing: 0.16em;
 }
@@ -167,7 +204,7 @@ button {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--red);
+  background: var(--accent);
   animation: ping 2.2s ease-out infinite;
 }
 
@@ -181,7 +218,7 @@ button {
   gap: clamp(34px, 0.5rem + 1vw, 82px);
   padding: 60px clamp(24px, 0.5rem + 1vw, 72px) 86px;
   overflow: hidden;
-  background: var(--ink);
+  background: var(--bg-base);
 }
 
 .hero::after {
@@ -200,8 +237,8 @@ button {
   z-index: -2;
   opacity: 0.18;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 74px 74px;
   mask-image: linear-gradient(90deg, #000, transparent 83%);
 }
@@ -231,7 +268,7 @@ button {
     position: absolute;
     inset: -20%;
     z-index: -1;
-    background: radial-gradient(circle, rgba(227, 30, 36, 0.35), transparent 70%);
+    background: radial-gradient(circle, var(--accent-soft), transparent 70%);
     filter: blur(40px);
     content: "";
     animation: emblem-glow 8s 1.25s ease-in-out infinite;
@@ -241,16 +278,17 @@ button {
   font-size: clamp(0.5rem, 1.5vw, 3rem);
 
   display: flex;
-  align-items: center;
-  gap: 18px;
+  /* align-items: center; */
+  align-items: flex-start;
+  flex-direction: column;
+
   margin: 0 0 26px;
-  color: #b9b5ab;
-  letter-spacing: 0.14em;
+  color: var(--text-muted);
   text-transform: uppercase;
 }
 
 .eyebrow > span:first-child {
-  color: var(--red);
+  color: var(--accent);
   font-weight: 800;
 }
 
@@ -278,8 +316,8 @@ button {
 
 .hero-title .accent {
   position: relative;
-  color: var(--red);
-  text-shadow: 0 0 42px rgba(227, 30, 36, 0.2);
+  color: var(--accent);
+  text-shadow: 0 0 42px var(--accent-faint);
 }
 
 .hero-summary {
@@ -294,7 +332,7 @@ button {
   font-size: clamp(1rem, 1vw, 4rem);
 
   margin: 0;
-  color: #c3bfb5;
+  color: var(--text-body);
   line-height: 1.65;
 }
 
@@ -305,7 +343,7 @@ button {
   display: flex;
   align-items: center;
   gap: 18px;
-  color: #a9a59b;
+  color: var(--text-faint);
   font: 18px/1;
   letter-spacing: 0.16em;
 }
@@ -315,7 +353,7 @@ button {
   width: 20px;
   height: 20px;
   place-items: center;
-  color: var(--red);
+  color: var(--accent);
   animation: arrow 1.8s ease-in-out infinite;
 }
 
@@ -327,8 +365,13 @@ button {
 
 .professions-section {
   position: relative;
-  padding-top: clamp(80px, 11vw, 120px);
-  padding-bottom: clamp(20px, 11vw, 60px);
+  padding-top: clamp(20px, 4vw, 60px);
+  padding-bottom: clamp(20px, 4vw, 60px);
+  height: 92svh;
+  
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .section-heading,
@@ -340,11 +383,8 @@ button {
 }
 
 .section-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
-  align-items: end;
-  gap: 80px;
-  margin-bottom: clamp(58px, 7vw, 100px);
+  flex-shrink: 0;
+  margin-bottom: clamp(24px, 3vw, 48px);
 }
 
 .section-heading h2,
@@ -358,21 +398,22 @@ button {
 }
 
 .section-heading h2 {
-  font-size: clamp(1.5rem, 8vw, 6rem);
+  font-size: clamp(1rem, 7.5vw, 6rem);
+  white-space: nowrap;
 }
 
 .section-heading h2 em {
   color: transparent;
   font-style: normal;
-  -webkit-text-stroke: 1px rgba(241, 238, 229, 0.62);
+  -webkit-text-stroke: 1px var(--line-strong);
 }
 
 .section-lead {
   max-width: 420px;
   margin: 0 0 5px;
   padding-top: 20px;
-  border-top: 1px solid var(--red);
-  color: #aaa69d;
+  border-top: 1px solid var(--accent);
+  color: var(--text-faint);
   font-size: clamp(14px, 1.1vw, 17px);
   line-height: 1.7;
 }
@@ -380,30 +421,33 @@ button {
 .profession-grid {
   display: grid;
   max-width: 1400px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
   margin: 0 auto;
-}
-
-.profession-grid > *:nth-child(3) {
-  grid-column: span 2;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
 }
 
 .profession-card {
   position: relative;
+  height: 100%;
   min-height: 360px;
-  padding: clamp(26px, 3vw, 46px);
+  padding: clamp(10px, 3vw, 20px);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), transparent 38%), #171714;
+  border: 1px solid var(--line);
+  background: linear-gradient(140deg, var(--grid-line), transparent 38%), var(--bg-card);
   transition: border-color 320ms ease, transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .profession-card::before {
   position: absolute;
   inset: 0 auto 0 0;
   width: 3px;
-  background: var(--red);
+  background: var(--accent);
   content: "";
   transform: scaleY(0);
   transform-origin: bottom;
@@ -416,7 +460,7 @@ button {
   bottom: -80px;
   width: 180px;
   height: 180px;
-  border: 1px solid rgba(227, 30, 36, 0.24);
+  border: 1px solid var(--accent-soft);
   border-radius: 50%;
   content: "";
   transition: transform 480ms ease, border-color 280ms ease;
@@ -424,8 +468,8 @@ button {
 
 .profession-card:hover {
   z-index: 2;
-  border-color: rgba(227, 30, 36, 0.64);
-  transform: translateY(-6px);
+  border-color: var(--accent-glow);
+  /* transform: translateY(-6px); */
 }
 
 .profession-card:hover::before,
@@ -434,7 +478,7 @@ button {
 }
 
 .profession-card:hover::after {
-  border-color: rgba(227, 30, 36, 0.65);
+  border-color: var(--accent-glow);
   transform: scale(1.35);
 }
 
@@ -442,29 +486,26 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 44px;
-  color: #fff;
+  margin-bottom: 20px;
+  color: var(--text-strong);
   font: 14px/1;
-  letter-spacing: 0.16em;
+  flex-shrink: 0;
 }
 
 .card-code {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 2px;
-
+  display: grid;
+  place-items: center;
   width: 30px;
   height: 30px;
-  place-items: center;
-  border: 1px solid rgba(227, 30, 36, 0.65);
-  color: var(--red);
+  padding-left: 2px;
+  border: 1px solid var(--accent-glow);
+  color: var(--accent);
   font-weight: 800;
 }
 
 .card-domain {
   flex: 1;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 800;
 }
 
@@ -472,7 +513,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #b9b5ab;
+  color: var(--text-muted);
   font-size: 10px;
 }
 
@@ -480,25 +521,27 @@ button {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--red);
-  box-shadow: 0 0 0 4px rgba(227, 30, 36, 0.12);
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-faint);
   content: "";
 }
 
 .profession-card h3 {
   max-width: 590px;
   margin: 0 0 22px;
-  font-size: clamp(26px, 2.35vw, 42px);
+  font-size: clamp(22px, 2vw, 36px);
   letter-spacing: -0.035em;
   line-height: 1.04;
+  flex-shrink: 0;
 }
 
 .card-description {
   max-width: 620px;
   margin: 0;
-  color: #aaa69d;
-  font-size: 18px;
-  line-height: 1.7;
+  color: var(--text-faint);
+  font-size: clamp(1rem, 1vw, 2rem);
+  line-height: 1.6;
+  flex-shrink: 0;
 }
 
 .card-toggle {
@@ -508,16 +551,17 @@ button {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-top: 38px;
-  padding: 15px 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  margin-top: auto;
+  padding: 12px 0 0;
+  border-top: 1px solid var(--line);
   background: transparent;
-  color: #dedad1;
+  color: var(--text-bright);
   cursor: pointer;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  flex-shrink: 0;
 }
 
 .toggle-copy {
@@ -527,14 +571,14 @@ button {
 }
 
 .toggle-copy small {
-  color: #77736b;
+  color: var(--text-faint);
   font-size: 8px;
   font-weight: 600;
   letter-spacing: 0.12em;
 }
 
 .profession-card.is-open .toggle-label {
-  color: #fff;
+  color: var(--text-strong);
 }
 
 .card-toggle b {
@@ -542,38 +586,76 @@ button {
   width: 28px;
   height: 28px;
   place-items: center;
-  border: 1px solid rgba(227, 30, 36, 0.65);
-  color: var(--red);
+  border: 1px solid var(--accent-glow);
+  color: var(--accent);
   font-size: 17px;
   transition: color 180ms ease, background 180ms ease;
 }
 
 .card-toggle:hover b,
 .card-toggle:focus-visible b {
-  background: var(--red);
-  color: #fff;
+  background: var(--accent);
+  color: var(--text-strong);
 }
 
 .card-details {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition: grid-template-rows 400ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 260ms ease;
-}
-
-.card-details > div {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
   min-height: 0;
   overflow: hidden;
+  opacity: 0;
+  flex-shrink: 0;
+  transition: max-height 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+              opacity 260ms ease,
+              margin-top 400ms ease;
 }
 
 .profession-card.is-open .card-details {
-  grid-template-rows: 1fr;
+  flex: 1;
+  margin-top: 16px;
   opacity: 1;
 }
 
+/* Раскрывающийся блок с собственным скроллбаром */
+.card-details-inner {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  /* Без overscroll-behavior: contain — когда внутренний скролл дошёл до
+     конца, колесо/палец продолжают прокручивать саму страницу */
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
+/* Кастомный скроллбар */
+.card-details-inner::-webkit-scrollbar {
+  width: 4px;
+}
+
+.card-details-inner::-webkit-scrollbar-track {
+  background: var(--grid-line);
+  border-radius: 2px;
+}
+
+.card-details-inner::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.card-details-inner::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dark);
+}
+
+/* Firefox */
+.card-details-inner {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--grid-line);
+}
+
 .details-label {
-  margin: 28px 0 14px;
-  color: var(--red);
+  margin: 0 0 14px;
+  color: var(--accent);
   font: 12px/1;
   letter-spacing: 0.18em;
 }
@@ -589,8 +671,8 @@ button {
 .card-details li {
   position: relative;
   padding-left: 18px;
-  color: #c8c4ba;
-  font-size: 18px;
+  color: var(--text-body);
+  font-size: clamp(13px, 0.85vw, 16px);
   line-height: 1.45;
 }
 
@@ -600,7 +682,7 @@ button {
   left: 0;
   width: 5px;
   height: 5px;
-  background: var(--red);
+  background: var(--accent);
   content: "";
   transform: rotate(45deg);
 }
@@ -608,7 +690,7 @@ button {
 .card-details dl {
   display: grid;
   gap: 8px;
-  margin: 24px 0 0;
+  margin: 20px 0 0;
 }
 
 .card-details dl > div {
@@ -616,13 +698,13 @@ button {
   grid-template-columns: minmax(90px, 0.28fr) 1fr;
   gap: 16px;
   padding: 11px 12px;
-  background: rgba(227, 30, 36, 0.07);
+  background: var(--accent-faint);
   font-size: 11px;
   line-height: 1.45;
 }
 
 .card-details dt {
-  color: var(--red);
+  color: var(--accent);
   font: 9px/1.45;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -636,9 +718,9 @@ button {
   position: relative;
   padding-top: clamp(20px, 11vw, 60px);
   padding-bottom: clamp(20px, 11vw, 60px);
-  border-top: 1px solid rgba(255, 255, 255, 0.13);
-  background: #e9e6dd;
-  color: #151512;
+  border-top: 1px solid var(--line);
+  background: var(--c-surface);
+  color: var(--on-light);
 }
 
 .lab-heading {
@@ -646,7 +728,7 @@ button {
 }
 
 .lab-heading .eyebrow {
-  color: #6c6962;
+  color: var(--on-light-muted);
 }
 
 .lab-heading h2 {
@@ -667,13 +749,13 @@ button {
   min-height: 390px;
   margin: 0;
   overflow: hidden;
-  background: #222;
+  background: var(--bg-deep);
 }
 
 .photo-story figure::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 38%, rgba(8, 8, 7, 0.93));
+  background: linear-gradient(180deg, transparent 38%, rgba(11, 31, 56, 0.93));
   content: "";
 }
 
@@ -716,13 +798,13 @@ button {
   grid-template-columns: auto 1fr;
   gap: 9px 18px;
   align-items: end;
-  color: #fff;
+  color: var(--text-strong);
 }
 
 .photo-story figcaption > span {
   grid-row: span 2;
   align-self: start;
-  color: var(--red);
+  color: var(--accent);
   font: 10px/1;
 }
 
@@ -735,7 +817,7 @@ button {
 .photo-story figcaption p {
   max-width: 600px;
   margin: 0;
-  color: #c7c3ba;
+  color: var(--text-body);
   font-size: 12px;
   line-height: 1.55;
 }
@@ -746,10 +828,10 @@ button {
   padding-top: clamp(105px, 12vw, 190px);
   padding-bottom: clamp(105px, 12vw, 190px);
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  border-top: 1px solid var(--line);
   background:
-    radial-gradient(circle at 82% 36%, rgba(227, 30, 36, 0.17), transparent 24%),
-    linear-gradient(180deg, #161613, #0f0f0d 78%);
+    radial-gradient(circle at 82% 36%, var(--accent-faint), transparent 24%),
+    linear-gradient(180deg, var(--bg-soft), var(--bg-base) 78%);
 }
 
 .vector-section::before {
@@ -758,8 +840,8 @@ button {
   z-index: -2;
   opacity: 0.12;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 100px 100px;
   content: "";
   mask-image: radial-gradient(circle at 75% 36%, #000, transparent 58%);
@@ -772,7 +854,7 @@ button {
   z-index: -1;
   width: min(74vw, 1020px);
   aspect-ratio: 1;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--line);
   border-radius: 50%;
   animation: spin 32s linear infinite;
 }
@@ -780,7 +862,7 @@ button {
 .vector-orbit::before,
 .vector-orbit::after {
   position: absolute;
-  border: 1px solid rgba(227, 30, 36, 0.17);
+  border: 1px solid var(--accent-faint);
   border-radius: inherit;
   content: "";
 }
@@ -800,8 +882,8 @@ button {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--red);
-  box-shadow: 0 0 24px var(--red);
+  background: var(--accent);
+  box-shadow: 0 0 24px var(--accent-glow);
 }
 
 .vector-top {
@@ -812,7 +894,7 @@ button {
 }
 
 .vector-top > span {
-  color: #77736b;
+  color: var(--text-faint);
   font: 10px/1;
   letter-spacing: 0.18em;
 }
@@ -820,20 +902,20 @@ button {
 .outline {
   margin-left: 3vw;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(241, 238, 229, 0.72);
+  -webkit-text-stroke: 1px var(--line-strong);
 }
 
 .vector-copy > span {
   display: block;
   margin-bottom: 20px;
-  color: var(--red);
+  color: var(--accent);
   font: 9px/1;
   letter-spacing: 0.18em;
 }
 
 .vector-copy > p {
   margin: 0;
-  color: #b8b4aa;
+  color: var(--text-muted);
   font-size: clamp(15px, 1.2vw, 19px);
   line-height: 1.75;
 }
@@ -845,7 +927,7 @@ button {
   justify-content: space-between;
   margin-top: 36px;
   padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  border-bottom: 1px solid var(--line-strong);
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -853,13 +935,13 @@ button {
 }
 
 .vector-copy a b {
-  color: var(--red);
+  color: var(--accent);
   font-size: 16px;
   transition: transform 220ms ease;
 }
 
 .vector-copy a:hover {
-  border-color: var(--red);
+  border-color: var(--accent);
 }
 
 .vector-copy a:hover b {
@@ -868,7 +950,7 @@ button {
 
 .competencies {
   margin-top: clamp(70px, 8vw, 120px);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-top: 1px solid var(--line);
 }
 
 .competencies.is-visible i::after {
@@ -885,10 +967,10 @@ button {
   gap: 60px;
   padding: clamp(100px, 12vw, 180px) clamp(24px, 6vw, 110px) 80px;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid var(--line);
   background:
-    linear-gradient(90deg, rgba(17, 17, 15, 0.98), rgba(17, 17, 15, 0.74)),
-    radial-gradient(circle at 75% 50%, rgba(227, 30, 36, 0.24), transparent 32%);
+    linear-gradient(90deg, rgba(17, 45, 78, 0.98), rgba(17, 45, 78, 0.74)),
+    radial-gradient(circle at 75% 50%, var(--accent-soft), transparent 32%);
 }
 
 .closing > img {
@@ -899,7 +981,7 @@ button {
   width: min(43vw, 600px);
   opacity: 0.12;
   transform: translateY(-50%);
-  filter: drop-shadow(0 0 50px rgba(227, 30, 36, 0.26));
+  filter: drop-shadow(0 0 50px var(--accent-soft));
   animation: emblem-breathe 8s ease-in-out infinite;
 }
 
@@ -912,14 +994,14 @@ button {
 }
 
 .closing h2 em {
-  color: var(--red);
+  color: var(--accent);
   font-style: normal;
 }
 
 .closing-copy > p:last-child {
   max-width: 520px;
   margin: 45px 0 0;
-  color: #aaa69d;
+  color: var(--text-faint);
   font-size: 15px;
   line-height: 1.75;
 }
@@ -932,27 +1014,27 @@ button {
   height: 116px;
   place-content: center;
   gap: 12px;
-  border: 1px solid rgba(227, 30, 36, 0.72);
+  border: 1px solid var(--accent-glow);
   border-radius: 50%;
-  color: #bbb7ad;
+  color: var(--text-muted);
   text-align: center;
   letter-spacing: 0.14em;
   transition: color 280ms ease, background 280ms ease, transform 280ms ease;
 }
 
 .back-top b {
-  color: var(--red);
+  color: var(--accent);
   font-size: 20px;
 }
 
 .back-top:hover {
-  background: var(--red);
-  color: #fff;
+  background: var(--accent);
+  color: var(--text-strong);
   transform: translateY(-8px);
 }
 
 .back-top:hover b {
-  color: #fff;
+  color: var(--text-strong);
 }
 
 .site-footer {
@@ -962,9 +1044,9 @@ button {
   align-items: center;
   gap: 30px;
   padding: 10px clamp(24px, 4vw, 72px);
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  background: #0b0b0a;
-  color: #77736b;
+  border-top: 1px solid var(--line);
+  background: var(--bg-deep);
+  color: var(--text-faint);
   font: 12px/1.5;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -974,7 +1056,7 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #b8b4aa;
+  color: var(--text-muted);
 }
 
 .site-footer img {
@@ -1029,13 +1111,13 @@ button {
 }
 
 @keyframes ping {
-  0% { box-shadow: 0 0 0 0 rgba(227, 30, 36, 0.58); }
-  70%, 100% { box-shadow: 0 0 0 9px rgba(227, 30, 36, 0); }
+  0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  70%, 100% { box-shadow: 0 0 0 9px rgba(63, 114, 175, 0); }
 }
 
 @keyframes emblem-breathe {
   0%, 100% { filter: drop-shadow(0 0 0 transparent); }
-  50% { filter: drop-shadow(0 0 28px rgba(227, 30, 36, 0.45)); }
+  50% { filter: drop-shadow(0 0 28px var(--accent-glow)); }
 }
 
 @keyframes spin {
@@ -1111,6 +1193,16 @@ button {
     padding-inline: 20px;
   }
 
+  .professions-section {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .profession-grid {
+    flex: none;
+  }
+
   .section-heading {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -1118,7 +1210,12 @@ button {
   }
 
   .section-heading h2 {
-    font-size: clamp(2.8rem, 14vw, 6rem);
+    /* Заголовок умещается в одну строку даже на узких телефонах */
+    font-size: clamp(2.8rem, 14vw, 7rem);
+  }
+
+  .section-heading h2 em {
+      display: block;
   }
 
   .card-topline {

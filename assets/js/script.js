@@ -32,35 +32,56 @@ professionCards.forEach((card) => {
   const label = button?.querySelector('.toggle-label');
   const icon = button?.querySelector('.toggle-icon');
   const details = card.querySelector('.card-details');
+  const detailsInner = card.querySelector('.card-details-inner');
 
   if (!button) return;
 
   button.addEventListener('click', (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
 
     const willOpen = !card.classList.contains('is-open');
 
-    professionCards.forEach((otherCard) => {
-      const otherButton = otherCard.querySelector('.card-toggle');
-      const otherLabel = otherButton?.querySelector('.toggle-label');
-      const otherIcon = otherButton?.querySelector('.toggle-icon');
-      const otherDetails = otherCard.querySelector('.card-details');
+    // Костыль от «микролага»: фиксируем видимую высоту панели ДО снятия
+    // .is-open. Если мерить offsetHeight после снятия, панель на кадр
+    // «распрямляется» на полную высоту контента — и мелькает весь текст.
+    if (!willOpen && details) {
+      details.style.maxHeight = `${details.offsetHeight}px`;
+      void details.offsetHeight; // принудительный reflow перед снятием класса
+    }
 
-      otherCard.classList.remove('is-open');
-      otherButton?.setAttribute('aria-expanded', 'false');
-      otherDetails?.setAttribute('aria-hidden', 'true');
-      if (otherLabel) otherLabel.textContent = 'Подробнее о профессии';
-      if (otherIcon) otherIcon.textContent = '+';
-    });
+    // Переключаем карточку, не закрывая другие
+    card.classList.toggle('is-open', willOpen);
+    button.setAttribute('aria-expanded', String(willOpen));
+    details?.setAttribute('aria-hidden', String(!willOpen));
+
+    if (label) label.textContent = willOpen ? 'Скрыть подробности' : 'Подробнее о профессии';
+    if (icon) icon.textContent = willOpen ? '−' : '+';
+
+    if (!details || !detailsInner) return;
 
     if (willOpen) {
-      card.classList.add('is-open');
-      button.setAttribute('aria-expanded', 'true');
-      details?.setAttribute('aria-hidden', 'false');
-      if (label) label.textContent = 'Скрыть подробности';
-      if (icon) icon.textContent = '−';
+      // Плавно раскрываем до фактической высоты контента
+      details.style.maxHeight = `${detailsInner.scrollHeight}px`;
+    } else {
+      // Схлопываем от «замороженной» высоты к нулю
+      details.style.maxHeight = '0px';
+      detailsInner.scrollTop = 0; // сбрасываем скролл при закрытии
     }
   });
+});
+
+// На случай ресайза пересчитываем высоту открытой панели,
+// чтобы inline max-height не устаревал
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.querySelectorAll('.profession-card.is-open').forEach((openCard) => {
+      const d = openCard.querySelector('.card-details');
+      const di = openCard.querySelector('.card-details-inner');
+      if (d && di) d.style.maxHeight = `${di.scrollHeight}px`;
+    });
+  }, 150);
 });
 
 const revealItems = document.querySelectorAll('.reveal');

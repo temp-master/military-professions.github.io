@@ -7,7 +7,7 @@
       name="description"
       content="Интерактивный атлас инженерных и технологических профессий современной армии."
     />
-    <meta name="theme-color" content="#11110f" />
+    <meta name="theme-color" content="#112d4e" />
     <meta property="og:title" content="Атлас новых военных профессий" />
     <meta
       property="og:description"
@@ -41,7 +41,9 @@
         <div class="hero-copy">
           <p class="eyebrow hero-enter">
             <span>ГРАУ МО РФ</span>
-            <span>ТЕХНОЛОГИИ</span><span>ЛИДЕРСТВО</span>ИННОВАЦИИ</span>
+            <span>ТЕХНОЛОГИИ</span>
+            <span>ЛИДЕРСТВО</span>
+            <span>ИННОВАЦИИ</span>
           </p>
 
           <h1 id="hero-title" class="hero-title" aria-label="Атлас новых военных профессий">
@@ -83,63 +85,54 @@
             </figcaption>
           </figure>
 
-          <figure class="story-portrait reveal" onclick="location.href='#prof2';">
-            <img
-              src="assets/images/optics-lab.png"
-              alt="Военный специалист проверяет оптическую систему"
-              loading="lazy"
-            />
-            <figcaption>
-              <span>02</span>
-              <strong>Обслуживание и ремонт оптических и оптико-электронных приборов и систем</strong>
-            </figcaption>
-          </figure>
-
-          <figure class="story-detail reveal" onclick="location.href='#prof3';">
+          <figure class="story-detail reveal" onclick="location.href='#prof2';">
             <img
               src="assets/images/robotics-lab.png"
               alt="Инженер тестирует роботизированную руку"
               loading="lazy"
             />
             <figcaption>
-              <span>03</span>
+              <span>02</span>
               <strong>Техническое обеспечение робототехнических систем и мехатронных устройств</strong>
             </figcaption>
           </figure>
+
+          <figure class="story-portrait reveal" onclick="location.href='#prof3';">
+            <img
+              src="assets/images/optics-lab.png"
+              alt="Военный специалист проверяет оптическую систему"
+              loading="lazy"
+            />
+            <figcaption>
+              <span>03</span>
+              <strong>Обслуживание и ремонт оптических и оптико-электронных приборов и систем</strong>
+            </figcaption>
+          </figure>
+
         </div>
       </section>
 
       <section class="professions-section" id="professions">
         <div class="section-heading reveal">
           <div>
-            <p class="eyebrow"><span>КАТАЛОГ / 2026</span></p>
-            <h2>Профессии<br /><em>будущего</em></h2>
+            <h2>Профессии <em>будущего</em></h2>
           </div>
-          <p class="section-lead">
-            Новые и перспективные военные профессии (специальности) по подготовке военных специалистов РТО и АртТО
-          </p>
         </div>
-
         <div class="profession-grid">
           <article class="profession-card reveal" id="prof1">
             <div class="card-topline">
               <span class="card-code">01</span>
               <span class="card-domain">Инженер-мехатроник</span>
-              <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
             </div>
             <h3>Техник</h3>
+
             <p class="card-description">
               Разработка, проектирование, настройка и обслуживание интеллектуальных технических комплексов,
               объединяющих механические узлы, электронику, приводы и программное управление.
             </p>
-            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-01-details">
-              <span class="toggle-copy">
-                <span class="toggle-label">Подробнее о профессии</span>
-              </span>
-              <b class="toggle-icon" aria-hidden="true">+</b>
-            </button>
+
             <div class="card-details" id="profession-01-details" aria-hidden="true">
-              <div>
+              <div class="card-details-inner">
                 <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
                 <ul>
                   <li>Разработка технических заданий и технико-экономических обоснований проектов новых и модернизируемых робототехнических и мехатронных модулей для систем наведения, заряжания и стабилизации вооружения</li>
@@ -151,58 +144,26 @@
                 </ul>
               </div>
             </div>
+
+            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-01-details">
+              <span class="toggle-copy">
+                <span class="toggle-label">Подробнее о профессии</span>
+              </span>
+              <b class="toggle-icon" aria-hidden="true">+</b>
+            </button>
           </article>
 
           <article class="profession-card reveal" id="prof2">
             <div class="card-topline">
               <span class="card-code">02</span>
-              <span class="card-domain">Инженер-мехатроник</span>
-              <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
-            </div>
-            <h3>Программист</h3>
-            <p class="card-description">
-              Разработка, проектирование, настройка и обслуживание интеллектуальных технических комплексов,
-              объединяющих механические узлы, электронику, приводы и программное управление.
-            </p>
-            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-02-details">
-              <span class="toggle-copy">
-                <span class="toggle-label">Подробнее о профессии</span>
-              </span>
-              <b class="toggle-icon" aria-hidden="true">+</b>
-            </button>
-            <div class="card-details" id="profession-02-details" aria-hidden="true">
-              <div>
-                <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
-                <ul>
-                  <li>Разработка технических заданий и технико-экономических обоснований проектов новых и модернизируемых робототехнических и мехатронных модулей для систем наведения, заряжания и стабилизации вооружения</li>
-                  <li>Расчет и проектирование управляющих, информационно – сенсорных и исполнительных подсистем</li>
-                  <li>Разработка алгоритмического и программного обеспечения средств и систем автоматизации и управления</li>
-                  <li>Математическое моделирование мехатронных систем, роботов и их модулей с применением специализированных ПО</li>
-                  <li>Организация и проведение экспериментов на действующих объектах и макетах, обработка результатов с применением современных информационных технологий</li>
-                  <li>Проведение испытаний разработанных и изготовленных образцов, а также обоснование мер по обеспечению безопасности их эксплуатации</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-
-          <article class="profession-card reveal" id="prof3">
-            <div class="card-topline">
-              <span class="card-code">03</span>
-              <span class="card-domain"></span>
-              <span class="card-status">СПЕЦИАЛИЗАЦИЯ</span>
             </div>
             <h3>Инженер-оптотехник</h3>
             <p class="card-description">
               Обслуживание и ремонт роботизированных комплексов с техническим (машинным) зрением.
             </p>
-            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-03-details">
-              <span class="toggle-copy">
-                <span class="toggle-label">Подробнее о профессии</span>
-              </span>
-              <b class="toggle-icon" aria-hidden="true">+</b>
-            </button>
+
             <div class="card-details" id="profession-03-details" aria-hidden="true">
-              <div>
+              <div class="card-details-inner">
                 <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
                 <ul>
                   <li>Калибровка оптики после перегрузок, расчеты матрицы поправочных коэффициентов (для температуры, давления) и загрузка их в бортовой ПК</li>
@@ -214,7 +175,48 @@
                 </ul>
               </div>
             </div>
+
+            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-03-details">
+              <span class="toggle-copy">
+                <span class="toggle-label">Подробнее о профессии</span>
+              </span>
+              <b class="toggle-icon" aria-hidden="true">+</b>
+            </button>
           </article>
+
+          <article class="profession-card reveal" id="prof3">
+            <div class="card-topline">
+              <span class="card-code">03</span>
+              <span class="card-domain">Инженер-мехатроник</span>
+            </div>
+            <h3>Программист</h3>
+            <p class="card-description">
+              Разработка, проектирование, настройка и обслуживание интеллектуальных технических комплексов,
+              объединяющих механические узлы, электронику, приводы и программное управление.
+            </p>
+
+            <div class="card-details" id="profession-02-details" aria-hidden="true">
+              <div class="card-details-inner">
+                <p class="details-label">КЛЮЧЕВЫЕ ЗАДАЧИ</p>
+                <ul>
+                  <li>Разработка технических заданий и технико-экономических обоснований проектов новых и модернизируемых робототехнических и мехатронных модулей для систем наведения, заряжания и стабилизации вооружения</li>
+                  <li>Расчет и проектирование управляющих, информационно – сенсорных и исполнительных подсистем</li>
+                  <li>Разработка алгоритмического и программного обеспечения средств и систем автоматизации и управления</li>
+                  <li>Математическое моделирование мехатронных систем, роботов и их модулей с применением специализированных ПО</li>
+                  <li>Организация и проведение экспериментов на действующих объектах и макетах, обработка результатов с применением современных информационных технологий</li>
+                  <li>Проведение испытаний разработанных и изготовленных образцов, а также обоснование мер по обеспечению безопасности их эксплуатации</li>
+                </ul>
+              </div>
+            </div>
+
+            <button class="card-toggle" type="button" aria-expanded="false" aria-controls="profession-02-details">
+              <span class="toggle-copy">
+                <span class="toggle-label">Подробнее о профессии</span>
+              </span>
+              <b class="toggle-icon" aria-hidden="true">+</b>
+            </button>
+          </article>
+
         </div>
       </section>
 
