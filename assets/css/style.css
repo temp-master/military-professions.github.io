@@ -263,7 +263,7 @@ button {
 }
 
 .hero-name-collab {
-  font-size: clamp(0.5rem, 1.5vw, 3rem);
+  font-size: clamp(1rem, 1.5vw, 3rem);
   font-weight: 800;
 }
 
@@ -306,6 +306,57 @@ button {
   height: clamp(90px, 22vh, 220px);
   background: var(--line-strong);
   transform: rotate(45deg);
+}
+
+/* Логотипы в углах титульного блока — только для мобильной версии */
+.hero-corner {
+  display: none;
+}
+
+@media (max-width: 450px) {
+  .hero-emblems,
+  .hero-name-collab {
+    display: none;
+  }
+
+  .hero-corner {
+    position: absolute;
+    top: 5%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 90%;
+    filter: drop-shadow(0 0 18px var(--accent-soft));
+    animation: emblem-enter 900ms 260ms both cubic-bezier(0.2, 0.75, 0.2, 1);
+  }
+
+  .hero-corner img {
+    flex: none;
+    width: clamp(52px, 22vw, 120px);
+    height: auto;
+    object-fit: contain;
+  }
+
+  .corner-label {
+    font-size: clamp(0.5rem, 3.6vw, 1.4rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    color: var(--text-faint);
+    text-transform: uppercase;
+  }
+
+  .hero-corner-tl {
+    left: 5%;
+  }
+
+  .hero-corner-tr {
+    top: auto;
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 460ms;
+  }
 }
 
 .hero-diagonal {
@@ -1266,30 +1317,9 @@ button {
     gap: 20px;
     padding: 24px 20px 40px;
   }
-  
+
   .hero-emblems {
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    flex-direction: column;
-    gap: clamp(12px, 3vw, 22px);
     opacity: 0.22;
-  }
-
-  .hero-emblems img {
-    height: auto;
-    width: clamp(130px, 36vw, 190px);
-  }
-
-  .hero-emblem,
-  .hero-mto {
-    transform: none;
-  }
-
-  .hero-sep {
-    width: clamp(130px, 36vw, 190px);
-    height: 2px;
-    transform: none;
   }
 
   .hero-diagonal {
