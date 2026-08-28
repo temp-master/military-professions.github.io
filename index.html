@@ -24,10 +24,13 @@
     <div class="cursor-glow" aria-hidden="true"></div>
 
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Атлас — на главную">
-        <img src="assets/images/atlas-emblem.svg" alt="" />
-        <span>
+      <a class="brand" href="#top" aria-label="Атлас и МТО — на главную">
+        <img class="brand-atlas" src="assets/images/atlas-emblem.svg" alt="" />
+        <span class="brand-sep" aria-hidden="true"></span>
+        <img class="brand-mto" src="assets/images/mto-emblem.png" alt="Эмблема МТО" />
+        <span class="brand-copy">
           <strong>АТЛАС</strong>
+          <br>
           <small>новых военных профессий</small>
         </span>
       </a>
@@ -36,7 +39,11 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-grid" aria-hidden="true"></div>
-        <img class="hero-emblem" src="assets/images/atlas-emblem.svg" alt="" aria-hidden="true" />
+        <div class="hero-emblems" aria-hidden="true">
+          <img class="hero-emblem" src="assets/images/atlas-emblem.svg" alt="" />
+          <span class="hero-sep"></span>
+          <img class="hero-mto" src="assets/images/mto-emblem.png" alt="" />
+        </div>
 
         <div class="hero-copy">
           <p class="eyebrow hero-enter">
@@ -60,7 +67,7 @@
           </div>
         </div>
 
-        <a class="scroll-cue" href="#professions">
+        <a class="scroll-cue" href="#_professions">
           <span>СМОТРЕТЬ АТЛАС</span>
           <b aria-hidden="true">↓</b>
         </a>
@@ -68,7 +75,7 @@
 
       <section class="laboratories" id="laboratories">
         <div class="lab-heading reveal">
-          <h2>Технологии<br />в работе</h2>
+          <h2>Специалисты<br />в работе</h2>
         </div>
 
         <div class="photo-story">
@@ -77,7 +84,6 @@
               src="assets/images/cyber-lab.png"
               alt="Военный инженер работает с программным обеспечением и измерительными приборами"
               loading="lazy"
-              href="#prof1"
             />
             <figcaption>
               <span>01</span>
@@ -112,7 +118,7 @@
         </div>
       </section>
 
-      <section class="professions-section" id="professions">
+      <section class="professions-section" id="_professions">
         <div class="section-heading reveal">
           <div>
             <h2>Профессии <em>будущего</em></h2>
@@ -221,7 +227,11 @@
       </section>
 
       <section class="closing">
-        <img src="assets/images/atlas-emblem.svg" alt="" aria-hidden="true" />
+        <div class="closing-emblems" aria-hidden="true">
+          <img src="assets/images/atlas-emblem.svg" alt="" />
+          <span class="closing-sep"></span>
+          <img class="closing-mto" src="assets/images/mto-emblem.png" alt="" />
+        </div>
         <div class="closing-copy reveal">
           <p class="eyebrow"><span>АТЛАС / 2026</span></p>
           <h2>ТЕХНОЛОГИИ<br />ЛИДЕРСТВО<br /><em>ИННОВАЦИИ</em></h2>
@@ -230,14 +240,16 @@
             ответственность и любовь к Родине.
           </p>
         </div>
-        <a class="back-top" href="#professions"><span>В НАЧАЛО</span><b>↑</b></a>
+        <a class="back-top" href="#_professions"><span>Профессии будущего</span></a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div>
-        <img src="assets/images/atlas-emblem.svg" alt="" />
-        <span>АТЛАС НОВЫХ<br />ВОЕННЫХ ПРОФЕССИЙ</span>
+      <div class="footer-brand">
+        <img class="footer-atlas" src="assets/images/atlas-emblem.svg" alt="" />
+        <span class="footer-brand-sep" aria-hidden="true"></span>
+        <img class="footer-mto" src="assets/images/mto-emblem.png" alt="МТО" />
+        <span>АТЛАС<br/>НОВЫХ ВОЕННЫХ ПРОФЕССИЙ</span>
       </div>
       <p>© 2026 · ГРАУ МО РФ</p>
       <p>ТЕХНОЛОГИИ<br>ЛИДЕРСТВО<br>ИННОВАЦИИ</p>

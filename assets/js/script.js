@@ -86,18 +86,26 @@ window.addEventListener('resize', () => {
 
 const revealItems = document.querySelectorAll('.reveal');
 
+// Повторяющаяся логика появления (требование ТЗ): элемент может показаться
+// сколько угодно раз, если пользователь уходит со страницы и возвращается.
+// Чтобы при этом не было бесконечного «мерцания» на месте, прячем элемент
+// только после того, как он РЕАЛЬНО покинул зону видимости (intersectionRatio
+// упало до нуля), а не просто перестал пересекать тонкую полосу-порог.
+// Пока элемент хоть частично виден — он остаётся в состоянии «показан».
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.intersectionRatio > 0) {
+          // В зоне видимости (хотя бы частично) — показываем.
           entry.target.classList.add('is-visible');
         } else {
-          entry.target.classList.remove('is-visible'); 
+          // Полностью скрыт — готовим к следующему появлению.
+          entry.target.classList.remove('is-visible');
         }
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+    { threshold: [0, 0.05], rootMargin: '0px 0px -6% 0px' }
   );
 
   revealItems.forEach((item) => observer.observe(item));
