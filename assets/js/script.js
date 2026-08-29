@@ -3,6 +3,27 @@ const menuButton = document.querySelector('.menu-button');
 const navigation = document.querySelector('.main-nav');
 const professionCards = [...document.querySelectorAll('.profession-card')];
 
+// На мобильной версии (<= 450px) логотипы Атласа и МТО в шапке скрыты,
+// пока на экране титульный блок: он сам уже содержит эмблемы по углам.
+// Как только hero уходит из зоны видимости — плавно показываем их в шапке
+// (класс .brand--logos), при возврате наверх снова прячем.
+const brand = document.querySelector('.site-header .brand');
+const heroSection = document.querySelector('.hero');
+
+if (brand && heroSection && 'IntersectionObserver' in window) {
+  const heroObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Логотипы появляются, когда пользователь явно ушёл с титульного блока
+        brand.classList.toggle('brand--logos', !entry.isIntersecting);
+      });
+    },
+    { threshold: [0, 0.05] }
+  );
+
+  heroObserver.observe(heroSection);
+}
+
 const closeMenu = () => {
   if (!menuButton || !navigation) return;
   menuButton.setAttribute('aria-expanded', 'false');
