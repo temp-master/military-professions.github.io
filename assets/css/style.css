@@ -915,7 +915,7 @@ button {
 }
 
 .story-wide img {
-  object-position: 52% center;
+  object-position: 30% center;
 }
 
 .story-portrait img {
@@ -1447,6 +1447,10 @@ button {
   .story-wide {
     grid-row: auto;
     min-height: 540px !important;
+  }
+
+  .story-wide img {
+    object-position: 20% center;
   }
 
   .photo-story figure {
