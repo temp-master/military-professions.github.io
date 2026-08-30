@@ -915,15 +915,15 @@ button {
 }
 
 .story-wide img {
-  object-position: 30% center;
-}
-
-.story-portrait img {
-  object-position: center 40%;
+  object-position: 60% center;
 }
 
 .story-detail img {
   object-position: center;
+}
+
+.story-portrait img {
+  object-position: center 40%;
 }
 
 .photo-story figcaption {
@@ -1450,7 +1450,11 @@ button {
   }
 
   .story-wide img {
-    object-position: 20% center;
+    object-position: 60% center;
+  }
+
+  .story-portrait img {
+    object-position: center 80%;
   }
 
   .photo-story figure {
